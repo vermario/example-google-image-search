@@ -1,7 +1,7 @@
-# Robocorp VS Code extension - basic tutorial
+# Google image search example robot
 
-Runs Google image search and guides through the basics of [Robocorp VS Code extension](https://marketplace.visualstudio.com/items?itemName=robocorp.robocorp-code).
+Executes Google image search and stores the first result image.
 
-For more information including installation instructions, see [user manual](https://robocorp.com/docs/product-manuals/robocorp-code).
+Click the link below to get to the code:
 
-Check the script at [tasks.robot](./tasks.robot).
+[tasks.robot](./tasks.robot)
