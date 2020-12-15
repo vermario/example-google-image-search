@@ -1,23 +1,20 @@
-name: Upload to Robocorp Cloud
+name: Trigger a process in Robocorp Cloud
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
 jobs:
-  upload-to-robocorp-cloud:
+  run-process:
     runs-on: ubuntu-latest
-    name: Upload to Robocorp Cloud
+    name: Trigger process
     steps:
-      - uses: actions/checkout@master
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
+      - name: Trigger Robocorp Cloud process run
+        uses: robocorp/action-trigger-process@v1.0.0
         with:
-          node-version: 12.x
-      - name: Upload Robot to Robocorp Cloud
-        uses: robocorp/action-upload-robot@1.0.0
-        with:
-          workspace-key: ${{ secrets.ROBOCORP_WORKSPACE_KEY }}
+          api-key: ${{ secrets.ROBOCORP_WORKSPACE_KEY }}
           workspace-id: ${{ secrets.ROBOCORP_WORKSPACE_ID }}
-          robot-id: ${{ secrets.ROBOCORP_ROBOT_ID }}
+          process-id: ${{ secrets.ROBOCORP_PROCESS_ID }}
+          payload: '{"foo":"bar"}'
+          await-complete: true
